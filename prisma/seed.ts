@@ -11,6 +11,8 @@ const result = await prisma.datasets.create({
         title: "testfile",
         cid: "QmWYN4QK7TzTF6pHyazpEnR8dSh7omu4s36BLe8429r3sr",
         description: "91 Bytes",
+        address: "0x12Eb84C64d30bCB08fFC75c7E38CB9a8a9D8983d",
+        contributors: ["0x12Eb84C64d30bCB08fFC75c7E38CB9a8a9D8983d", "0x12Eb84C64d30bCB08fFC75c7E38CB9a8a9D8983d"]
     },
   })
   console.log(result)

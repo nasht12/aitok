@@ -13,13 +13,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
   } else if (req.method === 'POST') {
     try {
-      const { title, cid, description } = req.body;
+      const { title, cid, description, address, contributors } = req.body;
 
       const result = await prisma.datasets.create({
         data: {
           title,
           cid,
           description,
+          address,
+          contributors
         },
       });
 
