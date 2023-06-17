@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import Layout from './components/Layout/Layout';
+import Layout from '../components/Layout/Layout';
 import Link from 'next/link';
 import { Button } from '@mui/material';
-import MainTable from './components/MainTable/MainTable'
+import MainTable from '../components/MainTable/MainTable'
 import styles from '../styles/Home.module.css';
 
 const Datasets: React.FC = () => {
   const [datasets, setDatasets] = useState([]);
+
+  const data = [
+    { title: 'Dataset 1', cid: '123456', description: 'Description 1' },
+    { title: 'Dataset 2', cid: '789012', description: 'Description 2' },
+    // Add more dataset objects as needed
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +27,8 @@ const Datasets: React.FC = () => {
 
     fetchData();
   }, []);
+
+  console.log('datasets', datasets)
 
   return (
     <Layout>
