@@ -27,7 +27,7 @@ const Datasets: React.FC = () => {
     <div>
       <h1>Datasets</h1>
       <Link href="/createdataset"><Button>Add dataset</Button></Link>
-      <MainTable data={datasets}/>
+      {datasets && <MainTable data={datasets}/>}
     </div>
     </Layout>
   );
