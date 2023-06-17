@@ -8,6 +8,12 @@ import styles from '../styles/Home.module.css';
 const Datasets: React.FC = () => {
   const [datasets, setDatasets] = useState([]);
 
+  const data = [
+    { title: 'Dataset 1', cid: '123456', description: 'Description 1' },
+    { title: 'Dataset 2', cid: '789012', description: 'Description 2' },
+    // Add more dataset objects as needed
+  ];
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,12 +28,14 @@ const Datasets: React.FC = () => {
     fetchData();
   }, []);
 
+  console.log('datasets', datasets)
+
   return (
     <Layout>
     <div>
       <h1>Datasets</h1>
       <Link href="/createdataset"><Button>Add dataset</Button></Link>
-      {datasets && <MainTable data={datasets}/>}
+      {datasets && <MainTable data={data}/>}
     </div>
     </Layout>
   );

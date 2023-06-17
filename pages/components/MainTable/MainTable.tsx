@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 interface RowData {
   title: string;
   cid: string;
-  description: number;
+  description: string;
 }
 
 interface MainTableProps {
@@ -18,6 +18,7 @@ interface MainTableProps {
 }
 
 const MainTable: React.FC<MainTableProps> = ({ data }) => {
+    console.log('data', data);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
