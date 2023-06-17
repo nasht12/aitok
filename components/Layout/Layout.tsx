@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import AIMenu from '../AIMenu/AIMenu';
-import styles from '../../../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
 
 interface LayoutProps {
   children: React.ReactNode;

@@ -1,6 +1,6 @@
 import React from 'react';
-import DatasetForm from './components/DatasetForm/DatasetForm';
-import Layout from './components/Layout/Layout';
+import DatasetForm from '../components/DatasetForm/DatasetForm';
+import Layout from '../components/Layout/Layout';
 import {
     useAccount,
     useConnect,
@@ -16,7 +16,7 @@ const CreateDatasetPage: React.FC = () => {
     <Layout>
     <div>
       <h1>Create Dataset</h1>
-      <div>Address: {address}</div>
+      <h3>Address: {address}</h3>
       <DatasetForm />
     </div>
     </Layout>
