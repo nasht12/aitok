@@ -11,6 +11,7 @@ interface RowData {
   title: string;
   cid: string;
   description: string;
+  address: string;
 }
 
 interface MainTableProps {
@@ -25,8 +26,10 @@ const MainTable: React.FC<MainTableProps> = ({ data }) => {
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
-            <TableCell align="right">CID</TableCell>
-            <TableCell align="right">Description</TableCell>
+            <TableCell align="left">Creator</TableCell>
+            <TableCell align="left">Description</TableCell>
+            <TableCell align="left">CID</TableCell>
+            
           </TableRow>
         </TableHead>
         <TableBody>
@@ -38,8 +41,9 @@ const MainTable: React.FC<MainTableProps> = ({ data }) => {
               <TableCell component="th" scope="row">
                 {row.title}
               </TableCell>
-              <TableCell align="right">{row.cid}</TableCell>
-              <TableCell align="right">{row.description}</TableCell>
+              <TableCell align="left">{row.address}</TableCell>
+              <TableCell align="left">{row.description}</TableCell>
+              <TableCell align="left">{row.cid}</TableCell>
             </TableRow>
           ))}
         </TableBody>
