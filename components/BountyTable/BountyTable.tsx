@@ -22,13 +22,13 @@ const BountyTable: React.FC<MainTableProps> = ({ data }) => {
     console.log('data', data);
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table" >
+        <TableHead style={{ backgroundColor: '#f1f1f1' }}>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="left">Description</TableCell>
-            <TableCell align="left">Bounty</TableCell>
-            <TableCell align="left">Status</TableCell>
+            <TableCell><b>Name</b></TableCell>
+            <TableCell align="left"><b>Description</b></TableCell>
+            <TableCell align="left"><b>Bounty</b></TableCell>
+            <TableCell align="left"><b>Status</b></TableCell>
             
           </TableRow>
         </TableHead>
@@ -42,7 +42,7 @@ const BountyTable: React.FC<MainTableProps> = ({ data }) => {
                 {row.title}
               </TableCell>
               <TableCell align="left">{row.description}</TableCell>
-              <TableCell align="left">{row.bounty}</TableCell>
+              <TableCell align="left">{row.bounty} FIL</TableCell>
               <TableCell align="left">{row.status}</TableCell>
             </TableRow>
           ))}

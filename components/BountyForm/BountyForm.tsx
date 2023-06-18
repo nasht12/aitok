@@ -1,15 +1,19 @@
 import { useState } from 'react';
-import {useAccount } from 'wagmi'
+import { useAccount } from 'wagmi';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Alert from '@mui/material/Alert';
 
 const BountyForm: React.FC = () => {
   const [title, setTitle] = useState('');
   const [bounty, setBounty] = useState(0);
   const [status, setStatus] = useState('');
-
   const [description, setDescription] = useState('');
-
-  const { address, connector, isConnected } = useAccount()
-
+  const { address, connector, isConnected } = useAccount();
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,62 +31,78 @@ const BountyForm: React.FC = () => {
 
       console.log('Dataset stored:', data.message);
 
-      // Reset form fields
+      // Reset form fields and show success alert
       setTitle('');
-      setBounty(0)
+      setBounty(0);
       setStatus('');
       setDescription('');
+      setIsSuccess(true);
+      setIsError(false);
     } catch (error) {
       console.error('Error storing dataset:', error);
+      setIsSuccess(false);
+      setIsError(true);
     }
   };
 
   return (
     <div>
-      {/* <h2>Add Dataset</h2> */}
       <form onSubmit={handleSubmit}>
-        <h3>Address: {address}</h3>
-        <div>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
+        <Typography variant="caption">
+          <b>Address:</b> {address}
+        </Typography>
+        <div
+          style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}
+        >
+          <TextField
             id="title"
+            label="Title"
+            variant="outlined"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
+            sx={{ width: '300px' }}
           />
-        </div>
-        <div>
-          <label htmlFor="description">Description:</label>
-          <textarea
+
+          <TextField
             id="description"
+            label="Description"
+            variant="outlined"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
+            sx={{ width: '300px' }}
+          />
+
+          <TextField
+            id="bounty"
+            label="Bounty"
+            variant="outlined"
+            type="number"
+            value={bounty}
+            onChange={(e) => setBounty(parseInt(e.target.value, 10))}
+            sx={{ width: '300px' }}
+            InputProps={{
+              startAdornment: <InputAdornment position="start">FIL</InputAdornment>,
+            }}
           />
         </div>
-        <div>
-          <label htmlFor="bounty">Bounty:</label>
-          <input
-          type="number"
-          id="bounty"
-          value={bounty}
-          onChange={(e) => setBounty(parseInt(e.target.value, 10))}
-          required
-        />
-        </div>
-        {/* <div>
-        <label htmlFor="status">Status:</label>
-        <input
-          type="radio"
-          id="status"
-          value="true"
-          checked={status === true}
-          // onChange={(e) => setBounty(e.target.value)}
-        />
-      </div> */}
-        <button type="submit">Submit</button>
+        <Button variant="contained" type="submit" sx={{ marginTop: '1rem' }}>
+          Submit
+        </Button>
       </form>
+
+      {isSuccess && (
+        <Alert severity="success" sx={{ marginTop: '1rem' }}>
+          Added bounty successfully!
+        </Alert>
+      )}
+
+      {isError && (
+        <Alert severity="error" sx={{ marginTop: '1rem' }}>
+          Failed to submit bounty. Please try again.
+        </Alert>
+      )}
     </div>
   );
 };

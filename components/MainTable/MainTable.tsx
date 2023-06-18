@@ -23,12 +23,12 @@ const MainTable: React.FC<MainTableProps> = ({ data }) => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
+        <TableHead sx={{ backgroundColor: '#f1f1f1' }}>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="left">Creator</TableCell>
-            <TableCell align="left">Description</TableCell>
-            <TableCell align="left">CID</TableCell>
+            <TableCell><b>Name</b></TableCell>
+            <TableCell align="left"><b>Minted by</b></TableCell>
+            <TableCell align="left"><b>Description</b></TableCell>
+            <TableCell align="left"><b>CID</b></TableCell>
             
           </TableRow>
         </TableHead>
