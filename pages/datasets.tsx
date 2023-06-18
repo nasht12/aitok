@@ -3,7 +3,9 @@ import Layout from '../components/Layout/Layout';
 import Link from 'next/link';
 import { Button } from '@mui/material';
 import MainTable from '../components/MainTable/MainTable'
+import BountyTable from '../components/BountyTable/BountyTable';
 import DatasetForm from '../components/DatasetForm/DatasetForm';
+import BountyForm from '../components/BountyForm/BountyForm';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -13,6 +15,8 @@ import TabPanel from '@mui/lab/TabPanel';
 const Datasets: React.FC = () => {
   const [value, setValue] = useState('1');
   const [datasets, setDatasets] = useState([]);
+  const [bounties, setBounties] = useState([]);
+
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -24,6 +28,9 @@ const Datasets: React.FC = () => {
         const response = await fetch('/api/datasets'); // Make sure to use the correct API endpoint URL
         const data = await response.json();
         setDatasets(data);
+        const response2 = await fetch('/api/bounties');
+        const data2 = await response2.json();
+        setBounties(data2)
       } catch (error) {
         console.error(error);
       }
@@ -50,9 +57,9 @@ const Datasets: React.FC = () => {
           </TabList>
         </Box>
         <TabPanel value="1">{datasets && <MainTable data={datasets}/>}</TabPanel>
-        <TabPanel value="2">Item Two</TabPanel>
+        <TabPanel value="2"><BountyTable data={bounties}/></TabPanel>
         <TabPanel value="3"><DatasetForm /></TabPanel>
-        <TabPanel value="4"><DatasetForm /></TabPanel>
+        <TabPanel value="4"><BountyForm /></TabPanel>
       </TabContext>
     </Box>
       {/* {datasets && <MainTable data={datasets}/>} */}
