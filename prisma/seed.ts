@@ -6,15 +6,24 @@ async function main() {
   // ... you will write your Prisma Client queries here
 //   const allDatasets = await prisma.datasets.findMany()
 //   console.log(allDatasets)
-const result = await prisma.datasets.create({
-    data: {
-        title: "testfile",
-        cid: "QmWYN4QK7TzTF6pHyazpEnR8dSh7omu4s36BLe8429r3sr",
-        description: "91 Bytes",
-        address: "0x12Eb84C64d30bCB08fFC75c7E38CB9a8a9D8983d",
-        contributors: ["0x12Eb84C64d30bCB08fFC75c7E38CB9a8a9D8983d", "0x12Eb84C64d30bCB08fFC75c7E38CB9a8a9D8983d"]
-    },
-  })
+// const result = await prisma.datasets.create({
+//     data: {
+//         title: "testfile",
+//         cid: "QmWYN4QK7TzTF6pHyazpEnR8dSh7omu4s36BLe8429r3sr",
+//         description: "91 Bytes",
+//         address: "0x12Eb84C64d30bCB08fFC75c7E38CB9a8a9D8983d",
+//         contributors: ["0x12Eb84C64d30bCB08fFC75c7E38CB9a8a9D8983d", "0x12Eb84C64d30bCB08fFC75c7E38CB9a8a9D8983d"]
+//     },
+//   })
+  // const result = await prisma.bounties.create({
+  //   data: {
+  //       title: "testfile",
+  //       description: "91 Bytes",
+  //       bounty: 12,
+  //       status: "active"
+  //   },
+  // })
+  const result = await prisma.bounties.findMany();
   console.log(result)
 }
 
