@@ -23,10 +23,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       <footer className={styles.footer}>
-        <a href="https://rainbow.me" rel="noopener noreferrer" target="_blank">
+        <a href="/" rel="noopener noreferrer" target="_blank">
          About
         </a>
-        <a href="https://rainbow.me" rel="noopener noreferrer" target="_blank">
+        <a href="/" rel="noopener noreferrer" target="_blank">
          Contact
         </a>
       </footer>
