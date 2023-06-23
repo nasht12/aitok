@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import AIMenu from '../AIMenu/AIMenu';
+import Link from '@mui/material/Link';
 import styles from '../../styles/Home.module.css'
 
 interface LayoutProps {
@@ -23,12 +24,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       <footer className={styles.footer}>
-        <a href="/" rel="noopener noreferrer" target="_blank">
+      <Link href="/" >
          About
-        </a>
-        <a href="/" rel="noopener noreferrer" target="_blank">
+        </Link>
+        <Link href="/" >
          Contact
-        </a>
+        </Link>
       </footer>
     </div>
   );
