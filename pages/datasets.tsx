@@ -12,10 +12,10 @@ import TabPanel from '@mui/lab/TabPanel';
 
 export async function getStaticProps() {
   try {
-    const response1 = await fetch('http://localhost:3000/api/datasets');
+    const response1 = await fetch('https://aitok.vercel.app/api/datasets');
     const datasets = await response1.json();
 
-    const response2 = await fetch('http://localhost:3000/api/bounties');
+    const response2 = await fetch('https://aitok.vercel.app/api/bounties');
     const bounties = await response2.json();
 
     return {
