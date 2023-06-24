@@ -19,7 +19,6 @@ interface MainTableProps {
 }
 
 const MainTable: React.FC<MainTableProps> = ({ data }) => {
-    console.log('data', data);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -29,7 +28,6 @@ const MainTable: React.FC<MainTableProps> = ({ data }) => {
             <TableCell align="left"><b>Minted by</b></TableCell>
             <TableCell align="left"><b>Description</b></TableCell>
             <TableCell align="left"><b>CID</b></TableCell>
-            
           </TableRow>
         </TableHead>
         <TableBody>
